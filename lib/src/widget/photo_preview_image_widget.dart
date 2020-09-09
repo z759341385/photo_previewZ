@@ -23,7 +23,7 @@ class PhotoPreviewImageWidget extends StatefulWidget {
   final VoidCallback popCallBack;
 
   final int currentPostion;
-  final int totalAmount;
+  final int totalAmount ;
   final PhotoPreviewImageDelegate imageDelegate;
 
   final EdgeInsetsGeometry imgMargin;
@@ -40,7 +40,7 @@ class PhotoPreviewImageWidget extends StatefulWidget {
 
   @override
   _PhotoPreviewImageWidgetState createState() =>
-      _PhotoPreviewImageWidgetState();
+      _PhotoPreviewImageWidgetState(totalAmount: totalAmount);
 }
 
 class _PhotoPreviewImageWidgetState extends State<PhotoPreviewImageWidget>
@@ -55,7 +55,8 @@ class _PhotoPreviewImageWidgetState extends State<PhotoPreviewImageWidget>
 
   ///图片配置
   PhotoPreviewImageDelegate _imageDelegate;
-
+  int totalAmount =10;
+  _PhotoPreviewImageWidgetState({this.totalAmount});
   @override
   void initState() {
     super.initState();
@@ -105,10 +106,12 @@ class _PhotoPreviewImageWidgetState extends State<PhotoPreviewImageWidget>
                   _toImageWidget()),
           Positioned(
               bottom: 15,
-            right: 15,
+              right: 15,
               child: Container(
                 child: Text(
-                    '${widget?.currentPostion + 1}/${widget?.totalAmount}',style: TextStyle(color: Colors.white,fontSize: 20),),
+                  '${widget?.currentPostion + 1}/${widget?.totalAmount}',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
               )),
         ],
       ),

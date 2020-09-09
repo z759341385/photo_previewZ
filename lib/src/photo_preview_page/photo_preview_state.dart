@@ -29,6 +29,7 @@ class PhotoPreviewState extends State<PhotoPreviewPage> {
   @override
   void initState() {
     super.initState();
+    totalAmount = totalAmount;
 
     ///页码控制器初始化
     _pageController = PageController(
@@ -129,7 +130,7 @@ class PhotoPreviewState extends State<PhotoPreviewPage> {
             ?.add(position);
       },
       itemBuilder: (BuildContext ctx, int index) {
-        return _toListItemWidget(ctx, index, 3);
+        return _toListItemWidget(ctx, index, totalAmount);
       },
     );
   }
